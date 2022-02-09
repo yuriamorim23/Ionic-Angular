@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController } from 'ionic-angular';
-import { createLogicalNot } from 'typescript';
-import { CategoriasPage } from '../categorias/categorias';
 
 
 @IonicPage()
