@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CategoriaService } from '../services/domain/categoria.service';
 import { ErrorInterceptorProvider } from '../interceptors/erro-interceptors';
+import { AuthService } from '../services/domain/auth.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ErrorInterceptorProvider } from '../interceptors/erro-interceptors';
   providers: [
     StatusBar,
     ErrorInterceptorProvider, // providers de erro global
+    AuthService,
     SplashScreen,
     CategoriaService, // chamando a camada de servico DTO
     {provide: ErrorHandler, useClass: IonicErrorHandler}
