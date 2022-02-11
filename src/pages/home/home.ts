@@ -10,34 +10,33 @@ import { AuthService } from '../../services/domain/auth.service';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  creds : CredenciaisDTO = { // varialvel para capturar entrada de dados
+  creds : CredenciaisDTO = {
     email: "",
     senha: ""
   };
 
-
+ 
   constructor(
     public navCtrl: NavController, 
     public menu: MenuController,
-    public auth: AuthService) { //declaracao typeScritp 
+    public auth: AuthService) {
+
+  }
+
+  ionViewWillEnter() {
+    this.menu.swipeEnable(false);
+  }
     
+  ionViewDidLeave() {
+    this.menu.swipeEnable(true);
+  }
 
-    }
-
-    ionViewWillEnter(){ // metodos
-      this.menu.swipeEnable(false);
-    }
-
-    ionViewDidLeave(){
-      this.menu.swipeEnable(true);
-    }
-
-    login() { // metodos
-      this.auth.authenticate(this.creds)
+  login() {
+    this.auth.authenticate(this.creds)
       .subscribe(response => {
         console.log(response.headers.get('Authorization'));
+        this.navCtrl.setRoot('CategoriasPage');
       },
-      error => {});
+      error => {});    
   }
 }

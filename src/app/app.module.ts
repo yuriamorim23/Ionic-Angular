@@ -13,7 +13,7 @@ import { AuthService } from '../services/domain/auth.service';
 
 @NgModule({
   declarations: [
-    MyApp,
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -22,15 +22,15 @@ import { AuthService } from '../services/domain/auth.service';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    MyApp
   ],
   providers: [
     StatusBar,
-    ErrorInterceptorProvider, // providers de erro global
-    AuthService,
     SplashScreen,
-    CategoriaService, // chamando a camada de servico DTO
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CategoriaService,
+    ErrorInterceptorProvider,
+    AuthService
   ]
 })
 export class AppModule {}

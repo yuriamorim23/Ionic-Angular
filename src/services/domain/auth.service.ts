@@ -5,18 +5,18 @@ import { API_CONFIG } from "../../config/api.config";
 import { CredenciaisDTO } from "../../models/cresdenciais.dto";
 
 @Injectable()
-export class AuthService{
+export class AuthService {
 
     constructor(public http: HttpClient) {
     }
 
     authenticate(creds : CredenciaisDTO) {
-        return this.http.post(`${API_CONFIG.baseUrl}/login`, 
-        creds,
-        {
-            observe : 'response',
-            responseType : 'text'
-        });
-          
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/login`, 
+            creds,
+            {
+                observe: 'response',
+                responseType: 'text'
+            });
     }
 }
